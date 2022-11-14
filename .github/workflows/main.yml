@@ -17,7 +17,7 @@ steps:
 – name: Setup .NET Core SDK
 uses: actions/setup-dotnet@v3.0.3
 with:
-dotnet-version: 7.0.100
+dotnet-version: 3.0.100
 
 - name: Install dependencies
 run: dotnet restore
