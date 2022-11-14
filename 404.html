@@ -41,5 +41,17 @@
     </div>
     <script src="_framework/blazor.webassembly.js"></script>
     <script>navigator.serviceWorker.register('service-worker.js');</script>
+
+    <script>
+
+        window.onload = function () {
+            throwError()
+        };
+
+        // Function to compute the product of p1 and p2
+        function throwError() {
+            throw new Error('Exception message');
+        }
+    </script>
 </body>
 </html>
