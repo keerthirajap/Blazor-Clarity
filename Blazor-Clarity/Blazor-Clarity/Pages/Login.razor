@@ -1,4 +1,7 @@
 ﻿@page "/login"
+@page "/"
+
+@inject NavigationManager NavigationManager
 
 <PageTitle>Login Sample</PageTitle>
 
@@ -16,12 +19,19 @@
             <label for="floatingPassword">Enter some password</label>
         </div>
 
-        <div class="checkbox mb-3">
+        <div class="checkbox mb-3 mt-2">
             <label>
                 <input type="checkbox" value="remember-me"> Remember me
             </label>
         </div>
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+        <button class="w-100 btn btn-lg btn-primary" type="button" @onclick="IncrementCount">Sign in</button>
         <p class="mt-5 mb-3 text-muted">© 2017–2022</p>
     </form>
 </main>
+
+@code {  
+    private void IncrementCount()
+    {
+        NavigationManager.NavigateTo("counter");
+    }
+}
