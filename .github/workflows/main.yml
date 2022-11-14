@@ -2,30 +2,30 @@ name: Deploy to GitHub pages
 
 # Run workflow on every push to the master branch
 on:
-push:
-branches: [ master ]
+    push:
+        branches: [ master ]
 
 jobs:
-deploy-to-github-pages:
-# Use Ubuntu-latest image to run steps on
-runs-on: ubuntu-latest
-steps:
-# Uses GitHub’s checkout action to check out code from the master branch
-– uses: actions/checkout@v2
+    deploy-to-github-pages:
+    # Use Ubuntu-latest image to run steps on
+    runs-on: ubuntu-latest
+    steps:
+    # Uses GitHub’s checkout action to check out code from the master branch
+    - name: checkout code
+      uses: actions/checkout@v2
 
-# Sets up .NET Core SDK 3.1
-– name: Setup .NET Core SDK
-uses: actions/setup-dotnet@v3.0.3
-with:
-dotnet-version: 3.0.100
+    # Sets up .NET Core SDK 3.1
+    – name: Setup .NET Core SDK
+      uses: actions/setup-dotnet@v3.0.3
+      with:
+        dotnet-version: 3.0.100
+        - name: Install dependencies
+        run: dotnet restore
 
-    - name: Install dependencies
-    run: dotnet restore
+        - name: Build
+        run: dotnet build --configuration Release --no-restore
 
-    - name: Build
-    run: dotnet build --configuration Release --no-restore
-
-    - name: Test
-    run: dotnet test --no-restore --verbosity normal
-    - name: Publish
-    run: dotnet publish
+        - name: Test
+        run: dotnet test --no-restore --verbosity normal
+        - name: Publish
+        run: dotnet publish
