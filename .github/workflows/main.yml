@@ -19,13 +19,13 @@ uses: actions/setup-dotnet@v3.0.3
 with:
 dotnet-version: 3.0.100
 
-- name: Install dependencies
-run: dotnet restore
+    - name: Install dependencies
+    run: dotnet restore
 
-- name: Build
-run: dotnet build --configuration Release --no-restore
+    - name: Build
+    run: dotnet build --configuration Release --no-restore
 
-- name: Test
-run: dotnet test --no-restore --verbosity normal
-- name: Publish
-run: dotnet publish
+    - name: Test
+    run: dotnet test --no-restore --verbosity normal
+    - name: Publish
+    run: dotnet publish
