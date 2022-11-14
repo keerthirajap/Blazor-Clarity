@@ -17,8 +17,8 @@ steps:
 – name: Setup .NET Core SDK
 uses: actions/setup-dotnet@v3.0.3
 with:
-dotnet-version: 7.0.100
-
+dotnet-version: '5.0.x'
+include-prerelease: true
 - name: Setup default NUGET_PACKAGES
 run: mkdir /tmp/globalPackagesFolder/
 shell: bash
