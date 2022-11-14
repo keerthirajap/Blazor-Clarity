@@ -1,4 +1,6 @@
 ﻿@page "/counter"
+ 
+@inject IJSRuntime JSRuntime
 
 <PageTitle>Counter</PageTitle>
 
@@ -21,8 +23,8 @@
         currentCount++;
     }
 
-    private void GenerateErrorMessage()
+    private async Task GenerateErrorMessage()
     {
-        
+        await JSRuntime.InvokeVoidAsync("throwError");
     }
 }
